@@ -43,21 +43,26 @@ const quizData = [
         correct: 'd'
     }, {
         question: 'Qual das seguintes variáveis só aceita números inteiros?',
-        a: 'Long.',
-        b: 'Interger.',
-        c: 'Double.',
-        d: 'String.',
+        a: 'Long',
+        b: 'Interger',
+        c: 'Double',
+        d: 'String',
         correct: 'a'
     }
 ]
 
 const questionTitle = document.getElementById('question')
 
+//Label
 const aText = document.getElementById('a-text')
 const bText = document.getElementById('b-text')
 const cText = document.getElementById('c-text')
 const dText = document.getElementById('d-text')
 
+//Input
+const radio = document.getElementsByName('resposta')
+
+//Button
 const submitBtn = document.getElementById('submit')
 
 let currentQuiz = 0
@@ -69,15 +74,33 @@ function loadQuiz(){
     const currentQuizData = quizData[currentQuiz]
     questionTitle.innerHTML = currentQuizData.question
 
-    aText.innerHTML = currentQuizData.a
-    bText.innerHTML = currentQuizData.b
-    cText.innerHTML = currentQuizData.c
-    dText.innerHTML = currentQuizData.d
-
-
+    aText.innerText = currentQuizData.a
+    bText.innerText = currentQuizData.b
+    cText.innerText = currentQuizData.c
+    dText.innerText = currentQuizData.d
 }
 
+function uncheck () {
+    radio[0].checked = false;
+    radio[1].checked = false;
+    radio[2].checked = false;
+    radio[3].checked = false;
+}
+
+    
 submitBtn.addEventListener('click', () => {
-    currentQuiz++
-    loadQuiz();
+
+        currentQuiz++
+    
+        if(radio[0].checked || radio[1].checked || radio[2].checked || radio[3].checked){
+            if(currentQuiz < quizData.length){
+                loadQuiz();
+            }else{
+                alert('Parábens você conseguiu completar o quiz!')
+            }
+        }else{
+            alert('Por Favor marque uma opção e tente novamente!')
+        }
+  
+        uncheck();   
 })

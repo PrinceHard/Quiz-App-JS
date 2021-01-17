@@ -49,3 +49,12 @@ button:hover{
 .lista{
     margin: 2rem 3rem;
 }
+
+li{
+    margin-bottom: 1rem;
+    list-style: upper-alpha;
+}
+
+ul, li, label{
+    cursor: pointer;
+}
