@@ -7,7 +7,31 @@
     <title>Quiz App</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <div class="quiz__container">
+        <h2 id="question">Question Text</h2>
+        <ul class="lista">
+            <li>
+                <input type="radio" name="resposta" id="a">
+                <label id="a-text" for="a" id="a-l">Question</label>
+            </li>
+
+            <li>
+                <input type="radio" name="resposta" id="b">
+                <label id="b-text" for="b">Question</label>
+            </li>
+
+            <li>
+                <input type="radio" name="resposta" id="c">
+                <label id="c-text" for="c">Question</label>
+            </li>
+
+            <li class="d-l">
+                <input type="radio" name="resposta" id="d">
+                <label id="d-text" for="d">Question</label>
+            </li>
+        </ul>
+        <button id="submit">Submit</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
