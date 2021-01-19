@@ -14,6 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    margin: 2rem;
 }
 
 .quiz__container{
@@ -58,3 +59,4 @@ li{
 ul, li, label{
     cursor: pointer;
 }
+

@@ -65,7 +65,9 @@ const radio = document.getElementsByName('resposta')
 //Button
 const submitBtn = document.getElementById('submit')
 
+
 let currentQuiz = 0
+let score = 0
 
 loadQuiz();
 
@@ -87,20 +89,44 @@ function uncheck () {
     radio[3].checked = false;
 }
 
+function correctAnswer (){
+    const answerEls = document.querySelectorAll(".answer")
+
+    let answer = undefined;
+
+    answerEls.forEach((answerEl) => {
+        if(answerEl.checked){
+            answer = answerEl.id;
+        }
+    })
+    return answer
+}
+
     
 submitBtn.addEventListener('click', () => {
 
-        currentQuiz++
+    const answer = correctAnswer();
+
+    console.log(answer)
+    console.log(score)
+
+    if(answer){
+        if(answer === quizData[currentQuiz].correct){
+            score++;
+        }
+        currentQuiz++;
     
         if(radio[0].checked || radio[1].checked || radio[2].checked || radio[3].checked){
             if(currentQuiz < quizData.length){
                 loadQuiz();
             }else{
-                alert('Parábens você conseguiu completar o quiz!')
+                alert(`Parábens você conseguiu completar o quiz, você acertou ${score} de 7 questões!`)
             }
         }else{
             alert('Por Favor marque uma opção e tente novamente!')
         }
   
-        uncheck();   
+    }      
+        uncheck();  
+         
 })
